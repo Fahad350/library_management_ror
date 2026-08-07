@@ -1,0 +1,66 @@
+<h1>Books</h1>
+
+<h3>Author: <%= @author.name %></h3>
+
+<p>
+
+<%= link_to "Add Book", new_author_book_path(@author) %> |
+
+<%= link_to "Authors", authors_path %>
+
+</p>
+
+<table border="1" cellpadding="8">
+
+<thead>
+
+<tr>
+
+<th>Title</th>
+
+<th>Price</th>
+
+<th colspan="3">Actions</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<% @books.each do |book| %>
+
+<tr>
+
+<td><%= book.title %></td>
+
+<td>$<%= book.price %></td>
+
+<td>
+
+<%= link_to "Show", author_book_path(@author, book) %>
+
+</td>
+
+<td>
+
+<%= link_to "Edit", edit_author_book_path(@author, book) %>
+
+</td>
+
+<td>
+
+<%= button_to "Delete",
+      author_book_path(@author, book),
+      method: :delete,
+      data: { turbo_confirm: "Are you sure?" } %>
+
+</td>
+
+</tr>
+
+<% end %>
+
+</tbody>
+
+</table>

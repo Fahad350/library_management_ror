@@ -1,0 +1,27 @@
+<%= form_with(model: @author) do |form| %>
+
+  <% if @author.errors.any? %>
+    <div>
+      <h3><%= pluralize(@author.errors.count, "error") %> prevented this author from being saved:</h3>
+
+      <ul>
+        <% @author.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+
+  <p>
+    <%= form.label :email %><br>
+    <%= form.email_field :email %>
+  </p>
+
+  <%= form.submit %>
+
+<% end %>

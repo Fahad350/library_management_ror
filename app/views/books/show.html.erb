@@ -1,0 +1,35 @@
+<h1>Book Details</h1>
+
+<p>
+
+<strong>Title:</strong>
+
+<%= @book.title %>
+
+</p>
+
+<p>
+
+<strong>Price:</strong>
+
+$<%= @book.price %>
+
+</p>
+
+<p>
+
+<strong>Author:</strong>
+
+<%= @author.name %>
+
+</p>
+
+<hr>
+
+<%= link_to "Edit",
+      edit_author_book_path(@author, @book) %>
+
+|
+
+<%= link_to "Back",
+      author_books_path(@author) %>
